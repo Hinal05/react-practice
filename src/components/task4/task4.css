@@ -1,0 +1,32 @@
+.post-list {
+  max-width: 90%;
+  margin: 0 auto;
+}
+.post-list ul {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+}
+.post-list ul li {
+  width: calc(24% - 10px);
+  padding: 10px;
+}
+.img-block {
+  max-height: 200px;
+  overflow: hidden;
+}
+.post-list ul li img {
+  width: 100%;
+}
+.blog-filter {
+  max-width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+.blog-filter > div {
+  margin: 0 10px;
+}

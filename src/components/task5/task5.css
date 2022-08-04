@@ -1,0 +1,28 @@
+form {
+  border: #eeeeeef6 solid 1px;
+  background-color: #f8f8f8f6;
+  width: 500px;
+  margin: 0 auto 20px auto;
+  padding: 20px;
+}
+h3 {
+  margin: 0 0 15px 0;
+  font-size: 18px;
+}
+.field-wrap {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.field-wrap label {
+  width: 140px;
+  display: inline-block;
+}
+.field-wrap input, .field-wrap textarea, .field-wrap select {
+  width: 180px;
+  border: 1px solid #eee;
+  padding: 5px 10px;
+}
+hr {
+  background-color: #eeeeeef6;
+}

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <title>Task1</title>
+  </head>
+  <body>
+
+    <script>
+
+      //*-------------------------------------------------------------*//
+      // Question 1: Running Sum of 1d Array
+      //*-------------------------------------------------------------*//
+      const sum = (arr) => {
+        var sumArr = [];
+        var result = 0;
+        for (var i=0; i<arr.length; i++) {
+          result = result + arr[i];
+          sumArr.push(result);
+        }
+        console.log('Sum of 1d Array:',sumArr);
+      }
+      sum([1,2,3,4]); // outputs [1, 3, 6, 10]
+      sum([1,1,1,1,1]); // outputs [1, 2, 3, 4, 5]
+      sum([3,1,2,10,1]); // outputs [3, 4, 6, 16, 17]
+
+      //*-------------------------------------------------------------*//
+      // Question 2: Find Pivot Index
+      //*-------------------------------------------------------------*//
+      const pivotIndex = (nums) => {
+        // initialize the sums, 0 because we don't know the sums yet.
+        var totalSum = 0;
+        var leftSum = 0;
+        // now let's calculate the total sum
+        nums.forEach((element) => totalSum += element);
+        /*
+        now we have the sum, so we want to check for the condition.
+        but before that, we need to loop through each element in the array.
+        */
+        for(var i=0; i<nums.length; i++){
+          if(totalSum - leftSum - nums[i] === leftSum){
+            console.log('Pivot Index:', nums,':', i);
+            return i;
+          }
+          leftSum += nums[i]
+        }
+        return (
+          console.log('Pivot Index:', nums,':', -1)
+        )
+      }
+      pivotIndex([1,7,3,6,5,6]); // outputs 3
+      pivotIndex([1,2,3]); // outputs -1
+      pivotIndex([2,1,-1]); // outputs 0
+
+      //*-------------------------------------------------------------*//
+      // Question 3: Two Sums
+      //*-------------------------------------------------------------*//
+      const num = [2, 7, 11, 15];
+      const num1 = [3, 2, 4];
+      const num2 = [3, 3];
+
+      const twoSum = (twoSumArr, target) => {
+        for (let i = 0; i < twoSumArr.length; i++) {
+          const diffIndex = twoSumArr.indexOf(target - twoSumArr[i]);
+          if (diffIndex >= 0 && diffIndex !== i) {
+            return [i, diffIndex];
+          }
+        }
+        return []; // no solution found
+      }
+      console.log('Two Sum:', twoSum(num, 9)); // outputs [0,1]
+      console.log('Two Sum:', twoSum(num1, 6)); // outputs [1,2]
+      console.log('Two Sum:', twoSum(num2, 6)); // outputs [1,0]
+
+      //*-------------------------------------------------------------*//
+      // Question 4: Group-by by specific key
+      //*-------------------------------------------------------------*//
+      const groupArr=[{name:'a',dept:'IT'},{name:'b',dept:'Admin'},{name:'c',dept:'IT'}]
+      var outObject = groupArr.reduce(function(obj, element) {
+        // GROUP BY estimated key (estKey), well, may be a just plain key
+        // obj -- Accumulator result object
+        // element -- sequentally checked Element, the Element that is tested just at this itaration
+        // new grouping name may be calculated, but must be based on real value of real field
+        let estKey = (element['dept']);
+        (obj[estKey] ? obj[estKey] : (obj[estKey] = null || [])).push(element);
+        return obj;
+      }, {});
+      console.log('Group-by by specific key:', outObject);
+
+      //*-------------------------------------------------------------*//
+      // Question 5: Addition of sequential numbers should be given target number
+      //*-------------------------------------------------------------*//
+      const seqNum = (conArr, target) => {
+        const output = [];
+        let conArrOutput = [];
+        let sum = 0;
+        for (let i = 0; i < conArr.length; i++) {
+          conArrOutput.push(conArr[i]);
+            sum = sum + conArr[i];
+            if (sum > target) {
+              let num = conArrOutput.shift();
+              sum = sum - num;
+            }
+            if (sum == target) {
+                output.push(conArrOutput);
+                console.log('Addition of sequential numbers should be given target number',conArrOutput);
+                sum = 0;
+                conArrOutput = [];
+            }
+        }
+      }
+      seqNum([2,2,4,4,1,3,6,7,2],8); // outputs [2, 2, 4] [4, 1, 3]
+      seqNum([1,4,5,6,2,4,3,1,5],10); // outputs [1, 4, 5] [2, 4, 3, 1]
+
+    </script>
+  </body>
+</html>
