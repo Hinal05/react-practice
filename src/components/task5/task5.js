@@ -5,6 +5,7 @@ import ProductInfo from "./comp/productInfo";
 import AddressInfo from "./comp/addressInfo";
 import Summary from "./comp/summary";
 
+// Reference to Lifting.
 function Task5() {
 
   const [address, setAddress] = useState([]);

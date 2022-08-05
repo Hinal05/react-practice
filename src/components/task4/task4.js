@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import posts from "./posts";
 import "./task4.css";
 
+// Reference to Search.
 function Task4() {
 
   const [query, setQuery] = useState("");

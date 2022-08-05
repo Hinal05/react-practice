@@ -15,7 +15,7 @@ function ProductInfo({setProName, setProQuantity}) {
   return (
     <form onSubmit={handleSubmit}>
       <h3>Product Information</h3>
-      <div className="field-wrap">
+       <div className="field-wrap">
           <label>Product Name:</label>
           <select id='proName'>
             <option>Select product</option>
