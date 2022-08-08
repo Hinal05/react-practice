@@ -1,25 +1,7 @@
-import React from "react";
-import {nanoid} from "nanoid";
+import React, { useContext } from "react";
 
-function AddAircraft({addItem, setAddItem, items, setItems}) {
-  function handleChange(event){
-    event.preventDefault();
-    const fieldName = event.target.getAttribute('name');
-    const fieldValue = event.target.value;
-    const newData = {...addItem};
-    newData[fieldName] = fieldValue;
-    setAddItem(newData);
-  }
-  function handleSubmit(event) {
-    event.preventDefault();
-    const newItem = {
-      id: nanoid(),
-      name: addItem.name,
-      country: addItem.country,
-    }
-    const newItems = [...items, newItem];
-    setItems(newItems);
-  }
+function AddAircraft({ListContext}) {
+  const {handleChange, handleSubmit} = useContext(ListContext);
   return (
     <form onSubmit={handleSubmit}>
       <div className="field-wrap">
