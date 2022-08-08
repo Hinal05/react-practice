@@ -30,6 +30,10 @@ export const ListProvider = (props) => {
     }
     const newItems = [...items, newItem];
     setItems(newItems);
+    setAddItem({
+      name: '',
+      country: '',
+    })
   }
 
   return (
